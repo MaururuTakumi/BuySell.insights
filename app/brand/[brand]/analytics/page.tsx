@@ -30,6 +30,7 @@ export default function BrandAnalyticsPage({ params }: BrandAnalyticsPageProps) 
 
   useEffect(() => {
     fetchAnalytics();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   const fetchAnalytics = async () => {

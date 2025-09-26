@@ -151,7 +151,7 @@ export default function ExecutiveSummary({ data }: ExecutiveSummaryProps) {
                   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 p-2 bg-gray-900 text-white text-xs rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
                     交渉効率 = AVG((adjusted - appraised) ÷ adjusted × 100)
                     <br />買取上限からの削減率の平均
-                    <br />※不正行除外: appraised ≤ adjusted && adjusted > 0
+                    <br />※不正行除外: appraised &lt;= adjusted &amp;&amp; adjusted &gt; 0
                   </div>
                 </div>
               </div>
