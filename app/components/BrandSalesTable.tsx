@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { apiFetch } from '@/lib/api-client';
 
 interface SalesData {
   id: string;
@@ -28,7 +29,7 @@ export default function BrandSalesTable({ brand }: BrandSalesTableProps) {
   useEffect(() => {
     const fetchSales = async () => {
       try {
-        const response = await fetch(`/api/sales?brand=${encodeURIComponent(brand)}&limit=50`);
+        const response = await apiFetch(`/api/sales?brand=${encodeURIComponent(brand)}&limit=50`);
         if (!response.ok) {
           throw new Error('Failed to fetch sales data');
         }

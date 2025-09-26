@@ -7,6 +7,7 @@ import FilterPanel from '@/app/components/analytics/FilterPanel';
 import PriceDistribution from '@/app/components/analytics/PriceDistribution';
 import MaterialRankHeatmap from '@/app/components/analytics/MaterialRankHeatmap';
 import { fromBrandSlug } from '@/lib/utils/brand-utils';
+import { apiFetch } from '@/lib/api-client';
 
 interface BrandAnalyticsPageProps {
   params: {
@@ -43,7 +44,7 @@ export default function BrandAnalyticsPage({ params }: BrandAnalyticsPageProps) 
         if (value) queryParams.append(key, value);
       });
 
-      const response = await fetch(`/api/analytics?${queryParams}`);
+      const response = await apiFetch(`/api/analytics?${queryParams}`);
       if (!response.ok) {
         throw new Error('Failed to fetch analytics');
       }

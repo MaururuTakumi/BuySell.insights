@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { apiFetch } from '@/lib/api-client';
 
 interface MetricsData {
   totalSelling: number;
@@ -35,7 +36,7 @@ export default function BrandMetrics({ brand }: BrandMetricsProps) {
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
-        const response = await fetch(`/api/metrics?brand=${encodeURIComponent(brand)}`);
+        const response = await apiFetch(`/api/metrics?brand=${encodeURIComponent(brand)}`);
         if (!response.ok) {
           throw new Error('Failed to fetch metrics');
         }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { apiFetch } from '@/lib/api-client';
 
 interface UploadResult {
   ok: boolean;
@@ -45,7 +46,7 @@ export default function AdminPage() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('/api/ingest', {
+      const response = await apiFetch('/api/ingest', {
         method: 'POST',
         body: formData,
       });
