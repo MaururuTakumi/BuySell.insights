@@ -412,7 +412,13 @@ export async function GET(request: Request) {
       .sort((a, b) => a.month.localeCompare(b.month));
 
     // 異常検知
-    const anomalies = [];
+    const anomalies: Array<{
+      id: string;
+      type: 'negative_profit' | 'extreme_margin' | 'over_limit_purchase';
+      description: string;
+      amount: number;
+      date: string;
+    }> = [];
 
     // 負の粗利（selling_price < appraised_price）
     data.forEach(row => {

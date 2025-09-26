@@ -1,6 +1,6 @@
 'use client';
 
-import { BoxPlot, Scatter, Bar } from 'recharts';
+import { Bar } from 'recharts';
 import {
   BarChart,
   XAxis,
@@ -9,9 +9,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  Cell,
-  ScatterChart,
-  ZAxis
+  Cell
 } from 'recharts';
 
 interface PriceDistributionProps {
@@ -52,18 +50,6 @@ export default function PriceDistribution({ data }: PriceDistributionProps) {
     }
     return `¥${value.toLocaleString()}`;
   };
-
-  // 箱ひげ図のデータ準備
-  const boxPlotData = [
-    {
-      name: '価格分布',
-      min: data.priceDistribution.min,
-      q1: data.priceDistribution.q1,
-      median: data.priceDistribution.median,
-      q3: data.priceDistribution.q3,
-      max: data.priceDistribution.max,
-    }
-  ];
 
   // カテゴリ別価格分布
   const categoryData = data.categoryMetrics

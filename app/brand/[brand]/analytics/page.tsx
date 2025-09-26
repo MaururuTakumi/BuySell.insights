@@ -53,14 +53,14 @@ export default function BrandAnalyticsPage({ params }: BrandAnalyticsPageProps) 
 
       // 利用可能なオプションを抽出
       if (result) {
-        const types = [...new Set(result.categoryMetrics.map((c: any) => c.category))];
-        const materials = [...new Set(result.materialMetrics.map((m: any) => m.material))];
-        const ranks = [...new Set(result.rankMetrics.map((r: any) => r.rank))];
+        const types = [...new Set(result.categoryMetrics.map((c: any) => c.category))] as string[];
+        const materials = [...new Set(result.materialMetrics.map((m: any) => m.material))] as string[];
+        const ranks = [...new Set(result.rankMetrics.map((r: any) => r.rank))] as string[];
 
         setAvailableOptions({
-          types: types.filter(t => t !== 'その他'),
-          materials: materials.filter(m => m !== 'その他'),
-          ranks: ranks.filter(r => r !== 'N/A')
+          types: types.filter((t): t is string => typeof t === 'string' && t !== 'その他'),
+          materials: materials.filter((m): m is string => typeof m === 'string' && m !== 'その他'),
+          ranks: ranks.filter((r): r is string => typeof r === 'string' && r !== 'N/A')
         });
       }
     } catch (err) {
