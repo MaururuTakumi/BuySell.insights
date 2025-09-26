@@ -1,0 +1,11 @@
+sale_date,sales_channel,sale_contact,item_type_group,brand,rank,type,model_number,material,sale_quantity,adjusted_exp_sale_price,appraised_price,selling_price
+2024-01-15,toC,Online,バッグ,LOUIS VUITTON,A,ショルダーバッグ,M40780,モノグラム,1,120000,110000,158000
+2024-01-16,toB,Store,バッグ,CHANEL,AB,トートバッグ,A12345,レザー,1,250000,240000,320000
+2024-01-17,toC,Online,財布,GUCCI,B,長財布,GG1234,キャンバス,1,35000,32000,48000
+2024-01-18,toC,Store,バッグ,HERMES,S,ハンドバッグ,BIRKIN30,レザー,1,1800000,1750000,2200000
+2024-01-19,toB,Online,アクセサリー,CARTIER,A,ネックレス,LOVE-01,ゴールド,1,450000,440000,580000
+2024-01-20,toC,Store,時計,ROLEX,A,腕時計,116500LN,ステンレス,1,3200000,3100000,3850000
+2024-01-21,toC,Online,バッグ,PRADA,B,リュック,1BZ005,ナイロン,1,85000,80000,110000
+2024-01-22,toB,Store,衣類,MONCLER,A,ダウンジャケット,MAYA,ナイロン,1,120000,115000,155000
+2024-01-23,toC,Online,バッグ,CELINE,AB,ハンドバッグ,16CELINE,レザー,1,180000,175000,230000
+2024-01-24,toC,Store,財布,BOTTEGA VENETA,A,二つ折り財布,INTRECCIATO,レザー,1,65000,62000,85000

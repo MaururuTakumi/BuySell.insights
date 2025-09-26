@@ -1,0 +1,6 @@
+sale_date,sales_channel,sale_contact,item_type_group,brand,rank,type,model_number,material,sale_quantity,adjusted_exp_sale_price,appraised_price,selling_price
+2024-02-01,toC,Online,,LOUIS VUITTON,A,バッグ,M40780,モノグラム,1,120000,110000,158000
+2024-02-02,toB,Store,,,AB,バッグ,A12345,レザー,1,2500000,2400000,3200000
+2024-02-03,toC,Online,,,B,アウター,,ダウン,1,120000,110000,155000
+2024-02-04,toC,Store,,,S,時計,116500LN,ステンレス,1,3200000,3100000,3850000
+2024-02-05,toB,Online,,,A,ネックレス,LOVE-01,ゴールド,1,1500000,1440000,1780000
