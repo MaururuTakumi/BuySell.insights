@@ -114,84 +114,62 @@ export default function BrandAnalyticsPage({ params }: BrandAnalyticsPageProps) 
   const displayName = fromBrandSlug(params.brand).toUpperCase();
 
   return (
-    <main className="min-h-screen bg-gray-50">
-      {/* ヘッダー */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <main className="min-h-screen bg-gray-100">
+      {/* シンプルなヘッダー */}
+      <div className="bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-2">
-                <Link href="/brand" className="hover:text-gray-700">
-                  ブランド一覧
-                </Link>
-                <span>/</span>
-                <Link href={`/brand/${params.brand}`} className="hover:text-gray-700">
-                  {displayName}
-                </Link>
-                <span>/</span>
-                <span className="text-gray-900">分析ダッシュボード</span>
-              </nav>
-              <h1 className="text-2xl font-bold text-gray-900">
-                {displayName} リセールバリュー分析
+            <div className="flex items-center space-x-4">
+              <h1 className="text-lg font-medium">
+                {displayName} Analytics Dashboard
               </h1>
-              <p className="mt-1 text-sm text-gray-500">
-                調達から販売までの詳細な価格分析と利益率の可視化
-              </p>
+              <span className="text-xs text-gray-400">
+                Last updated: {new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })}
+              </span>
             </div>
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2">
               <Link
                 href={`/brand/${params.brand}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50"
+                className="px-3 py-1.5 text-xs font-medium text-gray-300 hover:text-white transition-colors"
               >
-                従来ビューへ
+                ← Basic View
               </Link>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-        {/* フィルターパネル */}
-        <FilterPanel
-          filters={filters}
-          onFilterChange={handleFilterChange}
-          availableOptions={availableOptions}
-        />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+        {/* コンパクトなフィルター */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+          <FilterPanel
+            filters={filters}
+            onFilterChange={handleFilterChange}
+            availableOptions={availableOptions}
+          />
+        </div>
 
-        {/* セクションA: エグゼクティブ概要 */}
+        {/* KPIサマリー */}
         <section>
-          <div className="mb-4">
-            <h2 className="text-xl font-bold text-gray-900">A. エグゼクティブ概要</h2>
-            <p className="text-sm text-gray-500">主要KPIとトップ/ワースト商品</p>
-          </div>
           <ExecutiveSummary data={data} />
         </section>
 
-        {/* セクションB: 価格分布 */}
+        {/* 価格分布 */}
         <section>
-          <div className="mb-4">
-            <h2 className="text-xl font-bold text-gray-900">B. 価格分布（再販価格）</h2>
-            <p className="text-sm text-gray-500">価格の分布と外れ値の検出（Tukey法）</p>
-          </div>
+          <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-3">価格分布・異常検知</h2>
           <PriceDistribution data={data} />
         </section>
 
-        {/* セクションC: 素材×ランク分析 */}
+        {/* 素材×ランクヒートマップ */}
         <section>
-          <div className="mb-4">
-            <h2 className="text-xl font-bold text-gray-900">C. 素材×ランクの耐久示唆</h2>
-            <p className="text-sm text-gray-500">劣化に強い/弱い組み合わせの特定</p>
-          </div>
+          <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-3">素材×ランク分析</h2>
           <MaterialRankHeatmap data={data.materialRankMatrix} />
         </section>
 
-        {/* セクションD: 異常検知 */}
+        {/* 異常検知 */}
         {data.anomalies && data.anomalies.length > 0 && (
           <section>
-            <div className="mb-4">
-              <h2 className="text-xl font-bold text-gray-900">D. 異常検知</h2>
-              <p className="text-sm text-gray-500">注意が必要な取引の検出</p>
-            </div>
+            <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-3">異常検知アラート</h2>
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
               <div className="space-y-3">
                 {data.anomalies.slice(0, 10).map((anomaly: any, index: number) => (

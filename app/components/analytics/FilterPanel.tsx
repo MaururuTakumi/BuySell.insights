@@ -26,27 +26,27 @@ export default function FilterPanel({ filters, onFilterChange, availableOptions 
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold text-gray-900">フィルター</h3>
+    <div>
+      <div className="flex items-center justify-between mb-3">
+        <span className="text-xs font-semibold text-gray-700 uppercase tracking-wider">Filters</span>
         <button
           onClick={() => onFilterChange({})}
-          className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+          className="text-xs text-gray-500 hover:text-gray-700"
         >
-          リセット
+          Clear all
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         {/* タイプフィルター */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            タイプ
+          <label className="block text-xs font-medium text-gray-600 mb-1">
+            Type
           </label>
           <select
             value={filters.type || ''}
             onChange={(e) => handleFilterChange('type', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-2 py-1.5 border border-gray-300 rounded text-xs focus:ring-1 focus:ring-blue-500 focus:border-blue-500 bg-white"
           >
             <option value="">すべて</option>
             {availableOptions.types.map((type) => (
@@ -59,13 +59,13 @@ export default function FilterPanel({ filters, onFilterChange, availableOptions 
 
         {/* 素材フィルター */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            素材
+          <label className="block text-xs font-medium text-gray-600 mb-1">
+            Material
           </label>
           <select
             value={filters.material || ''}
             onChange={(e) => handleFilterChange('material', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-2 py-1.5 border border-gray-300 rounded text-xs focus:ring-1 focus:ring-blue-500 focus:border-blue-500 bg-white"
           >
             <option value="">すべて</option>
             {availableOptions.materials.map((material) => (
@@ -78,13 +78,13 @@ export default function FilterPanel({ filters, onFilterChange, availableOptions 
 
         {/* ランクフィルター */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            ランク
+          <label className="block text-xs font-medium text-gray-600 mb-1">
+            Rank
           </label>
           <select
             value={filters.rank || ''}
             onChange={(e) => handleFilterChange('rank', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-2 py-1.5 border border-gray-300 rounded text-xs focus:ring-1 focus:ring-blue-500 focus:border-blue-500 bg-white"
           >
             <option value="">すべて</option>
             {availableOptions.ranks.map((rank) => (
@@ -97,27 +97,27 @@ export default function FilterPanel({ filters, onFilterChange, availableOptions 
 
         {/* 開始日 */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            開始日
+          <label className="block text-xs font-medium text-gray-600 mb-1">
+            From
           </label>
           <input
             type="date"
             value={filters.startDate || ''}
             onChange={(e) => handleFilterChange('startDate', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-2 py-1.5 border border-gray-300 rounded text-xs focus:ring-1 focus:ring-blue-500 focus:border-blue-500 bg-white"
           />
         </div>
 
         {/* 終了日 */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            終了日
+          <label className="block text-xs font-medium text-gray-600 mb-1">
+            To
           </label>
           <input
             type="date"
             value={filters.endDate || ''}
             onChange={(e) => handleFilterChange('endDate', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-2 py-1.5 border border-gray-300 rounded text-xs focus:ring-1 focus:ring-blue-500 focus:border-blue-500 bg-white"
           />
         </div>
 
